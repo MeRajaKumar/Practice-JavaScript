@@ -3,16 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Document</title>
 </head>
 <body>
      <!-- Change the background color of a <div> when it is clicked. -->
-        <div id="chnagebg">
-            <h1>Click me</h1>
+        <div id="chnagebg" style="height: 400px; width: 400px; background-color: red;">
+            <h1 style="color: white;">Click me</h1>
 
         </div>
         <script>
-            var btnref = document.getElementById()
+            // method 1
+            // var btnref = document.getElementById('chnagebg');
+            // btnref.addEventListener("click", function() {
+            //     this.style.backgroundColor = "blue";
+            // });
+
+            // method 2 - vanilla JS
+            // document.getElementById("changebg").addEventListener("click", function() {
+            // this.style.backgroundColor = "blue";
+            // });
+
+            // method 3 - Toggle Between Color
+            // const div = document.getElementById("changebg");
+            // div.addEventListener("click", function() {
+            // this.style.backgroundColor = this.style.backgroundColor === "red" ? "blue" : "red";
+            // });
+
+            // method 4
+            // document.querySelector("#chnagebg").addEventListener("click", function() {
+            //     this.style.backgroundColor = "blue";
+            // });
+
+            // method 5 - 
+            const div = document.getElementById("changebg");
+            div.addEventListener("click", function() {
+            const randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+            this.style.backgroundColor = randomColor;
+            });
+
+            // method 6 - jQuery 
+            // $("#changebg").click(function() {
+            //     $(this).css("background-color", "blue");
+            // });
+            
+
 
         </script>
     
