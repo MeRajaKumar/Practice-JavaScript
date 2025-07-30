@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Toggle Class</title>
+  <style>
+    .parentdiv {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: blue;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 1.3rem;
+    }
+
+    .btnclick {
+      padding: 3px 40px;
+      color: #fff;
+      background-color: blueviolet;
+      font-size: 1.3rem;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .btnclick:hover {
+      padding: 4px 42px;
+    }
+
+    .highlight {
+      color: white;
+      background-color: darkgreen;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="parentdiv">
+    <h1 class="heading">This is my JavaScript Practice Page!</h1>
+    <button class="btnclick toggleBtn" onclick="toggleClass()">Add Class</button>
+  </div>
+
+  <script>
+    const heading = document.getElementsByClassName("heading")[0]; // get first matching element
+    // const heading = document.querySelector(".heading"); // selects first element with class 'heading'
+    const button = document.getElementsByClassName("toggleBtn")[0]; // get first matching button
+
+    function toggleClass() {
+      if (heading.classList.contains("highlight")) {
+        heading.classList.remove("highlight");
+        button.textContent = "Add Class";
+      } else {
+        heading.classList.add("highlight");
+        button.textContent = "Remove Class";
+      }
+    }
+
+    // const heading = document.getElementById("heading");
+    // const button = document.getElementById("toggleBtn");
+
+    // function toggleClass() {
+    //   if (heading.classList.contains("highlight")) {
+    //     heading.classList.remove("highlight");
+    //     button.textContent = "Add Class";
+    //   } else {
+    //     heading.classList.add("highlight");
+    //     button.textContent = "Remove Class";
+    //   }
+    // }
+
+
+    // jQuery
+    $(document).ready(function () {
+      $(".toggleBtn").click(function () {
+        const heading = $(".heading");
+
+        // toggle the class
+        heading.toggleClass("highlight");
+
+        // update the button text based on class presence
+        if (heading.hasClass("highlight")) {
+          $(this).text("Remove Class");
+        } else {
+          $(this).text("Add Class");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
