@@ -55,15 +55,29 @@
   </div>
 
   <script>
-    const heading = document.getElementById("heading");
+    // const heading = document.getElementById("heading");
 
+    // function addClass() {
+    //   heading.classList.add("highlight");
+    // }
+
+    // function removeClass() {
+    //   heading.classList.remove("highlight");
+    // }
+
+    // --- jQuery ---
     function addClass() {
-      heading.classList.add("highlight");
+      $(".heading").addClass("highlight");
     }
 
     function removeClass() {
-      heading.classList.remove("highlight");
+      $(".heading").removeClass("highlight");
     }
+
+    // Optional: document ready for other jQuery setup
+    $(document).ready(function () {
+      console.log("Page is ready");
+    });
   </script>
 </body>
 </html>
