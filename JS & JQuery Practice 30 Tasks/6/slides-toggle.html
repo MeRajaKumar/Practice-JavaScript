@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Toggle</title>
+    <style>
+        /* Center everything and style body */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style the button */
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Style the image */
+        img {
+            width: 400px;
+            max-width: 90%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+            max-height: 500px;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <button>Toggle Image</button>
+    <img src="shimla.webp" width="400" alt="Shimla" id="myImg">
+
+    <script>
+        const button = document.querySelector("button");
+        const img = document.getElementById("myImg");
+
+        button.addEventListener("click", () => {
+            if (img.style.maxHeight === "0px" || img.style.maxHeight === "") {
+                img.style.maxHeight = "500px"; // slide down
+                img.style.opacity = "1";       // fade in
+            } else {
+                img.style.maxHeight = "0px";   // slide up
+                img.style.opacity = "0";       // fade out
+            }
+        });
+    </script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("img").slideToggle(1000); // slides up or down over 1 second
+            });
+        });
+    </script> -->
+</body>

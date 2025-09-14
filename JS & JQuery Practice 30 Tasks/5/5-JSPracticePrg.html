@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fade In Fade Out</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        img {
+            width: 400px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <img src="shimla.webp" alt="Shimla">
+    <button>Click Me!</button>
+
+    <script>
+        const img = document.querySelector("img");
+        const button = document.querySelector("button");
+
+        button.addEventListener("click", () => {
+            if(img.style.opacity == "1" || img.style.opacity == "") {
+                img.style.opacity = "0"; // fade out
+            } else {
+                img.style.opacity = "1"; // fade in
+            }
+        });
+    
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                const img = $("img");
+                if(img.css("opacity") == "1" || img.css("opacity") == "0") {
+                    img.animate({opacity: img.css("opacity") == "1" ? 0 : 1}, 1000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
