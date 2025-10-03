@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Append and Remove Items</title>
+</head>
+<body>
+    <input type="text" id="itemInput" placeholder="Type something...">
+    <button type="button" id="addItem">Add</button>
+    <button type="button" id="removeItem">Remove</button>
+
+    <ul id="list-items"></ul>
+
+    <script>
+        const list = document.getElementById("list-items");
+        const addBtn = document.getElementById("addItem");
+        const removeBtn = document.getElementById("removeItem");
+        const input = document.getElementById("itemInput");
+
+        // Add item from input
+        addBtn.addEventListener("click", () => {
+            let text = input.value.trim(); // get text from input
+            if (text !== "") { // only add if not empty
+                const newLi = document.createElement("li");
+                newLi.textContent = text;
+                list.appendChild(newLi);
+                input.value = ""; // clear input after adding
+            }
+        });
+
+        // Remove last item
+        removeBtn.addEventListener("click", () => {
+            if (list.lastChild) {
+                list.removeChild(list.lastChild);
+            }
+        });
+    </script>
+</body>
+</html>

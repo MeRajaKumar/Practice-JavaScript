@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Append and Remove Items</title>
+</head>
+<body>
+    <!-- Append and Remove Elements - Append a new list item to an unordered list when a button is clicked. Add another button to remove the last item -->
+    
+    <ul id="list-items">
+    </ul>
+    <button type="button" id="addItem">Add</button>
+    <button type="button" id="removeItem">Remove</button>
+
+    <script>
+        const list = document.getElementById("list-items");
+        const addBtn = document.getElementById("addItem");
+        const removeBtn = document.getElementById("removeItem");
+
+        let count = 1; // keeps track of item number
+
+        // Add item
+        addBtn.addEventListener("click", () => {
+            const newLi = document.createElement("li");
+            newLi.textContent = "Item " + count;
+            list.appendChild(newLi);
+            count++;
+        });
+
+        // Remove last item
+        removeBtn.addEventListener("click", () => {
+            if (list.lastChild) {
+                list.removeChild(list.lastChild);
+                count--; // decrease counter when removing
+            }
+        });
+    </script>
+
+    <!-- jquery -->
+    <!-- <script>
+        $(document).ready(function () {
+            let count = 1;
+
+            // Add item
+            $("#addItem").click(function () {
+                $("#list-items").append("<li>Item " + count + "</li>");
+                count++;
+            });
+
+            // Remove last item
+            $("#removeItem").click(function () {
+                $("#list-items li:last-child").remove();
+                if (count > 1) {
+                    count--; // prevent going below 1
+                }
+            });
+        });
+    </script> -->
+</body>
+</html>
